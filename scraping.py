@@ -13,10 +13,5 @@ def main():
 
   return
 
-  jjjjj
-kkkkkkk
-kkllllll
-
-kkkk
 
 
