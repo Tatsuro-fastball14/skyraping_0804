@@ -8,10 +8,13 @@ def main():
 
   res = req.get(base_url)
 
+
   print(f'[-] Status code: {res.status_code}')
 
   return
 
   jjjjj
+kkkkkkk
+kkllllll
 
-  
+
