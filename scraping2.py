@@ -10,6 +10,17 @@ DBNAME = 'password'
 DBNAME = '10.0.0.8'
 def main():
 
+  conn = psql.connect(database=DBNAME, user=DBUSER, password=DBPASS, host=DBHOST, pory=5432)
+  cur = conn.cursor()
+
+
+  initial_query = """
+  CREATE TABLE IF NOT EXISTS stock_data
+  (uuid TEXT NOT NULL, timestamp TEXT NOT NULL, tocker TEXT NOT NULl)
+  """
+
+
+
 
 
 
