@@ -19,6 +19,8 @@ def main():
   (uuid TEXT NOT NULL, timestamp TEXT NOT NULL, tocker TEXT NOT NULl)
   """
 
+  cur.execute(initial_query)
+  conn.commit()
 
 
 
