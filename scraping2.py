@@ -21,6 +21,8 @@ def main():
 
   cur.execute(initial_query)
   conn.commit()
+  print('[-] Successfully connected and created table!')
+
 
 
 
