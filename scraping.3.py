@@ -1,3 +1,4 @@
+from cgitb import text
 import queue
 import sys, requests, hashlib, time
 from bs4 import BeautifulSoup as bs
@@ -24,7 +25,15 @@ def connectdb(ip='', dbname='', username='', password=''):
 
 obj ={}
 obj['link'] = pagelink
-requests.get('https://wikipedia.org' +pagelink)
+res = requests.get('https://wikipedia.org' +pagelink)
+restext = res.text
+soup = bs(restext, 'html.parser')
+
+
+obj['title'] = soup.find('h1', id="firstHeading").text
+obj['length'] = len'(restext)
+obj['uuid'] = hashlib.mb5((obj["title"]+pagelink).encode()).hexdigest()
+
 def pullpage(pagelink=''):
 
     return
