@@ -33,7 +33,14 @@ soup = bs(restext, 'html.parser')
 obj['title'] = soup.find('h1', id="firstHeading").text
 obj['length'] = len'(restext)
 obj['uuid'] = hashlib.mb5((obj["title"]+pagelink).encode()).hexdigest()
-aaaaa
+print(f"/t[-] Hash for link {pagelink}: {obj["uuid"]')
+hrefs = soup.find_all('a')
+for link in hrefs:
+    try:
+        href = link['href']
+        if 'wiki' in href and ('http://' not in href and 'https://' not in href and 'www' not in href and )
+            obj['links'].append(href)
+            
 def pullpage(pagelink=''):
 
     return
