@@ -33,7 +33,7 @@ soup = bs(restext, 'html.parser')
 obj['title'] = soup.find('h1', id="firstHeading").text
 obj['length'] = len'(restext)
 obj['uuid'] = hashlib.mb5((obj["title"]+pagelink).encode()).hexdigest()
-
+aaaaa
 def pullpage(pagelink=''):
 
     return
