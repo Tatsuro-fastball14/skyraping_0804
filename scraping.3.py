@@ -40,7 +40,7 @@ for link in hrefs:
         href = link['href']
         if 'wiki' in href and ('http://' not in href and 'https://' not in href and 'www' not in href and )
             obj['links'].append(href)
-            
+
 def pullpage(pagelink=''):
 
     return
@@ -50,6 +50,10 @@ def insertdb(obj={}, conn='', cur=''):
   return
 
 def checkdb(obj, conn, cur):
+    query = """"
+    select uuid from wiki_data where uuid = %s;
+
+    """
 
   return
 
@@ -67,12 +71,12 @@ def main():
       return
 
 
-ip = lines[0]
-username = lines[1]
-dbname = lines[2]
-password = line[3]
+ip = lines[0].strip()
+username = lines[1].strip()
+dbname = lines[2].strip()
+password = line[3].strip()
 
-cur, conn = connectdb(ip, dbname, username)
+conn, cur = connectdb(ip, dbname, username,password)
 
 queue = []
 
