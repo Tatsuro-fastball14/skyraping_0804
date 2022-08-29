@@ -7,7 +7,7 @@ headers = {
     'User-Agent':'Mozilla/5.0'
 }
 
-r = requests.get('https://www.apahotel.com/hotel/syutoken/chiba/keiseinarita-ekimae/', headers=headers)
+r = requests.get('https://asia.creativecdn.com/tags?type=iframe&id=pr_i2T7Cnz3c0D6sTUEk6m9', headers=headers)
 
 print(r.text)
 print('---------------')
