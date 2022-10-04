@@ -12,10 +12,10 @@ r = requests.get('https://shigira.com/hotel/shigira/guestrooms/suite-villa-sunri
 
 print(r.text)
 print('---------------')
-soup = BeautifulSoup(r.content, 'html.parser')
+soup = BeautifulSoup('html.content', 'html.parser')
 title = soup.find('title')
 print('タイトル',title)
-soup.find_all('div',"class=t-shigiraGuestroomsDetail__roomPlanArea")
+soup.find_all(class_=  "bodyconstraint_increased-min-width" )
 
 with open('./before_article.pickle', 'rb')as f:
     before_new_article =pickle.load(f)
@@ -29,3 +29,6 @@ with open('./before_article.pickle', 'wb') as f:
 
 if new_article != before_new_article:
     print('新着あり')
+
+
+    
