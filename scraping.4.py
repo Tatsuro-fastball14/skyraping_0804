@@ -1,34 +1,18 @@
-#アパホテルのサイトをスクレイピングするコード
-
+import subprocess
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+import chromedriver_binary 
 import requests
-import pickle
 from bs4 import BeautifulSoup
 
-headers = {
-    'User-Agent':'Mozilla/5.0'
-}
-
-r = requests.get('https://shigira.com/hotel/shigira/guestrooms/suite-villa-sunrise', headers=headers)
-
-print(r.text)
-print('---------------')
-soup = BeautifulSoup('html.content', 'html.parser')
-title = soup.find('title')
-print('タイトル',title)
-soup.find_all(class_=  "bodyconstraint_increased-min-width" )
-
-with open('./before_article.pickle', 'rb')as f:
-    before_new_article =pickle.load(f)
-
-html =requests.get(r)
-soup =BeautifulSoup(html.content, "html.parser")
-
-new_article = str(soup.find(class_="entry-card-wrap").get("title"))
-with open('./before_article.pickle', 'wb') as f:
-    pickle.dump(before_article.pickle, f)
-
-if new_article != before_new_article:
-    print('新着あり')
-
-
-    
+cmd = 'pip install --upgrade chromedriver_binary' 
+res = subprocess.call(cmd, shell=True)
+url = 'https://go-theshigira.reservation.jp/ja/hotels/shigira/rooms?checkin_date=20221022&checkout_date=20221023&adults=2&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0'
+d = DesiredCapabilities.CHROME
+d['goog:loggingPrefs'] = { 'performance': 'ALL' }
+driver = webdriver.Chrome(ChromeDriverManager().install(),desired_capabilities=d)
+driver.set_window_size('1200','1000')
+driver.get(url)
+soup = BeautifulSoup(driver.page_source, 'html.parser')
+print(driver.page_source)
