@@ -8,11 +8,15 @@ from bs4 import BeautifulSoup
 
 cmd = 'pip install --upgrade chromedriver_binary' 
 res = subprocess.call(cmd, shell=True)
-url = 'https://go-theshigira.reservation.jp/ja/hotels/shigira/rooms?checkin_date=20221022&checkout_date=20221023&adults=2&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0'
+url = "https://go-theshigira.reservation.jp/ja/hotels/santamonica/plans?checkin_date=20221023&checkout_date=20221024&adults=2&child1=0&child2=0&child3=0&child4=0&child5=0&children=0&rooms=1&dayuseFlg=0"
 d = DesiredCapabilities.CHROME
 d['goog:loggingPrefs'] = { 'performance': 'ALL' }
 driver = webdriver.Chrome(ChromeDriverManager().install(),desired_capabilities=d)
 driver.set_window_size('1200','1000')
 driver.get(url)
 soup = BeautifulSoup(driver.page_source, 'html.parser')
-print(driver.page_source)
+# print(driver.page_source)
+ol=soup.find_all('ol', class_="js-list-add-lide")
+print(ol)
+
+
