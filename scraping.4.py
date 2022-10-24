@@ -16,7 +16,7 @@ driver.set_window_size('1200','1000')
 driver.get(url)
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 # print(driver.page_source)
-ol=soup.find_all('ol', class_="js-list-add-lide")
-print(ol)
+li=soup.find_all('li', class_="u-flex1 u-flex-center")
+print(li)
 
 
