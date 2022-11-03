@@ -21,7 +21,7 @@ driver.get(url)
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 # print(driver.page_source)
 div=soup.find_all('div', class_="contents_outer next")
-img = div[0].find('img')
+div=soup.find_all("table")
 print(img)
 
 
