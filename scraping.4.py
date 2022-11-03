@@ -23,6 +23,7 @@ soup = BeautifulSoup(driver.page_source, 'html.parser')
 div=soup.find_all('div', class_="contents_outer next")
 img = soup.find('div', class_='inner g3 sg3 ssg6 sspush3') .find('img', class_='fit')
 print(img['src'])
-r = requests('https://hyattregencynaha.jp/guestroom/' + img['src'])
+r = requests.get('https://hyattregencynaha.jp/guestroom/' + str(img['src']))
 with open(f'test.jpg', 'wb') as f:
     f.write(r.content) 
+
