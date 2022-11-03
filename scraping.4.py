@@ -20,7 +20,7 @@ driver.set_window_size('1200','1000')
 driver.get(url)
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 # print(driver.page_source)
-li=soup.find_all('li', class_="u-flex1 u-flex-center")
-print(li)
+div=soup.find_all('div', class_="contents_outer next")
+print(div)
 
 
