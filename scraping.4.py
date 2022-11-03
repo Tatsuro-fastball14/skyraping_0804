@@ -21,7 +21,8 @@ driver.get(url)
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 # print(driver.page_source)
 div=soup.find_all('div', class_="contents_outer next")
-img = soup.find('img', class_='fit')
-print(div)
-
-
+img = soup.find('div', class_='inner g3 sg3 ssg6 sspush3') .find('img', class_='fit')
+print(img['src'])
+r = requests('https://hyattregencynaha.jp/guestroom/' + img['src'])
+with open(f'test.jpg', 'wb') as f:
+    f.write(r.content) 
