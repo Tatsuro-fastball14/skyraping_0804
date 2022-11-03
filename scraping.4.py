@@ -26,4 +26,7 @@ print(img['src'])
 r = requests.get('https://hyattregencynaha.jp/guestroom/' + str(img['src']))
 with open(f'test.jpg', 'wb') as f:
     f.write(r.content) 
-
+div=soup.find_all('table') [0]
+f = open('myfile.txt', 'w')
+f.write(str(div))
+f.close() 
